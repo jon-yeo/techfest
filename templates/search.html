@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("{{ url_for('static', filename='background.jpeg') }}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .image-container {
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Team 12</title>
+</head>
+
+<body>
+    <div class="image-grid">
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/' + data + '/' + data + '_4.png') }}" alt="Image 1"
+                style="width:200px;height:200px;">
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/' + data + '/' + data + '_4.png') }}" alt="Image 1"
+                style="width:200px;height:200px;">
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/' + data + '/' + data + '_4.png') }}" alt="Image 1"
+                style="width:200px;height:200px;">
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/' + data + '/' + data + '_4.png') }}" alt="Image 1"
+                style="width:200px;height:200px;">
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/' + data + '/' + data + '_4.png') }}" alt="Image 1"
+                style="width:200px;height:200px;">
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/' + data + '/' + data + '_4.png') }}" alt="Image 1"
+                style="width:200px;height:200px;">
+        </div>
+    </div>
+
+    <p>{{data}}</p>
+
+
+    <button id="ASong" onClick="playPause()">
+        <audio src="{{ url_for('static', filename='audio/'+ data + '.mp3') }}" autoplay loop></audio>
+        Play Audio
+    </button>
+
+    <script>
+        var aud = document.getElementById("ASong").children[0];
+        var isPlaying = false;
+        aud.pause();
+
+        function playPause() {
+            if (isPlaying) {
+                aud.pause();
+            } else {
+                aud.play();
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+    </script>
+    </script>
+</body>
+
+</html>

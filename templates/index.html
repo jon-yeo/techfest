@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url("{{ url_for('static', filename='background.jpeg') }}");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .form-container {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 200px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <title>Team 12</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Welcome to Team 12</h1>
+    <h5>Please enter a word u like to learn about below</h5>
+    <div class="form-container">
+      <form action="{{ url_for('submit') }}" method="post">
+        <input type="text" name="keywords" id="keywords" placeholder="apple">
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

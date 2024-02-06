@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>James</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center-screen">
+            <form action="{{ url_for('submit') }}" method="post">
+                <input type="text" name="keywords" id="keywords">
+                <input type="submit">
+            </form>
+
+
+            <video width="400" controls>
+                <source src="{{url_for('static', filename='beach.mp4')}}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .image-container {
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Image Gallery with Audio</title>
+</head>
+
+<body>
+    <div class="image-container">
+        <img src="/images/apple/apple_4.png" alt="Image 1">
+    </div>
+    <div class="image-container">
+        <img src="images/apple/apple_4" alt="Image 2">
+    </div>
+    <div class="image-container">
+        <img src="images/image3.jpg" alt="Image 3">
+    </div>
+    <div class="image-container">
+        <img src="images/image4.jpg" alt="Image 4">
+    </div>
+    <div class="image-container">
+        <img src="images/image5.jpg" alt="Image 5">
+    </div>
+    <div class="image-container">
+        <img src="images/image6.jpg" alt="Image 6">
+    </div>
+
+    <button id="playButton">Play Audio</button>
+
+    <audio id="audioElement">
+        <source src="/apple.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        var audio = document.getElementById('audioElement');
+        var playButton = document.getElementById('playButton');
+
+        playButton.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.play();
+                playButton.textContent = 'Pause Audio';
+            } else {
+                audio.pause();
+                playButton.textContent = 'Play Audio';
+            }
+        });
+    </script>
+</body>
+
+</html>
